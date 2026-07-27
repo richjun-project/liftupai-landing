@@ -1,26 +1,165 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 잉크 — 순수 검정 대신 블루로 살짝 틴트한 뉴트럴 */
+  --color-ink-950: oklch(0.14 0.014 265);
+  --color-ink-900: oklch(0.18 0.016 265);
+  --color-ink-850: oklch(0.22 0.018 265);
+  --color-ink-800: oklch(0.27 0.018 265);
+  --color-ink-700: oklch(0.38 0.016 265);
+  --color-ink-500: oklch(0.62 0.014 265);
+  --color-ink-300: oklch(0.80 0.010 265);
+  --color-ink-100: oklch(0.94 0.006 265);
+
+  /* 앱 프리미엄 컬러 시스템 */
+  --color-lift-blue: #0a84ff;
+  --color-lift-indigo: #5e5ce6;
+  --color-lift-violet: #bf5af2;
+  --color-lift-cyan: #64d2ff;
+
+  --font-sans: var(--font-plex-kr), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-plex-kr), sans-serif;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ink-950);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* 배경은 html에만 — body에도 칠하면 -z-10 광원 레이어를 덮는다 */
+  color: var(--color-ink-100);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+::selection {
+  background-color: color-mix(in oklch, var(--color-lift-blue) 40%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-lift-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@utility premium-glow {
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--color-lift-blue) 30%, transparent),
+    0 8px 32px -8px color-mix(in oklch, var(--color-lift-blue) 55%, transparent),
+    0 18px 60px -20px color-mix(in oklch, var(--color-lift-violet) 45%, transparent);
+}
+
+/* 오로라 shimmer — 시안 + 보라 2겹 */
+@utility shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        105deg,
+        transparent 38%,
+        color-mix(in oklch, var(--color-lift-cyan) 34%, transparent) 47%,
+        transparent 56%
+      ),
+      linear-gradient(
+        105deg,
+        transparent 42%,
+        color-mix(in oklch, var(--color-lift-violet) 30%, transparent) 52%,
+        transparent 62%
+      );
+    background-size: 220% 100%;
+    animation: shimmer 3.6s var(--ease-out-quint) infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 180% 0;
+  }
+  55%,
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* 카드 목록을 2벌 렌더하므로 절반만큼 이동하면 이음매가 없다 */
+    transform: translate3d(calc(-50% - 0.5rem), 0, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translate3d(calc(-50% - 0.5rem), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility rise-in {
+  animation: rise 0.9s var(--ease-out-quint) both;
+}
+
+/* 스크롤 진입 애니메이션 */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.75s var(--ease-out-quint),
+    transform 0.75s var(--ease-out-quint);
+}
+
+[data-reveal][data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .rise-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .shimmer-sweep::after {
+    animation: none;
+  }
+
+  [style*="marquee"] {
+    animation: none !important;
+  }
 }
