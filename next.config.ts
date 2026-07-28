@@ -5,6 +5,17 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // www는 중복 URL이 되지 않도록 apex로 영구 리다이렉트
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.liftupai.net" }],
+        destination: "https://liftupai.net/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
