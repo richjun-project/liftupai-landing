@@ -46,7 +46,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="#faq" className="hover:text-ink-100">
+              <a href="/#faq" className="hover:text-ink-100">
                 자주 묻는 질문
               </a>
             </li>

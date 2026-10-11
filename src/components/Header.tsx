@@ -2,17 +2,17 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 
 const nav = [
-  { href: "#features", label: "기능" },
-  { href: "#trainers", label: "AI 코치" },
-  { href: "#pricing", label: "요금제" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#features", label: "기능" },
+  { href: "/#trainers", label: "AI 코치" },
+  { href: "/#pricing", label: "요금제" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink-900/80 bg-ink-950/72 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="/#top" className="flex items-center gap-2.5">
           <Image
             src="/images/logo_icon.png"
             alt=""
