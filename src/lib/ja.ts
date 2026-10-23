@@ -19,8 +19,8 @@ export const jaSite = {
 } as const;
 
 /** 일본 App Store 표시 가격(세금 포함). 바뀌면 숫자 두 개만 고친다. */
-const monthlyJpy = 800;
-const yearlyJpy = 6000;
+const monthlyJpy = 1200;
+const yearlyJpy = 7800;
 const yen = (n: number) => `¥${n.toLocaleString("ja-JP")}`;
 
 export const jaPricing = {
