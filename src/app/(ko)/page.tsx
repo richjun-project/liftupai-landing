@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
@@ -6,6 +7,13 @@ import { Pricing } from "@/components/Pricing";
 import { Faq, faqs } from "@/components/Faq";
 import { DownloadCta } from "@/components/DownloadCta";
 import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    languages: { ko: "/", ja: "/ja", "x-default": "/" },
+  },
+};
 
 const faqJsonLd = {
   "@context": "https://schema.org",

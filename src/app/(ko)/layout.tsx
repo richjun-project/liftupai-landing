@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans_KR, Archivo } from "next/font/google";
 import { entityId, sameAs, site } from "@/lib/site";
-import "./globals.css";
+import "../globals.css";
 
 const plexKr = IBM_Plex_Sans_KR({
   variable: "--font-plex-kr",

@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // 루트 레이아웃이 (ko)·ja 둘이라 전역 404 를 app/global-not-found.tsx 로 둔다
+  experimental: {
+    globalNotFound: true,
+  },
   // www는 중복 URL이 되지 않도록 apex로 영구 리다이렉트
   async redirects() {
     return [

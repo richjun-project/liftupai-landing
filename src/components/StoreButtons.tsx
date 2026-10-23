@@ -19,20 +19,36 @@ function GoogleMark({ className }: { className?: string }) {
   );
 }
 
+const labels = {
+  ko: { ios: ["App Store에서", "다운로드"], android: ["Google Play에서", "다운로드"] },
+  ja: { ios: ["App Storeから", "ダウンロード"], android: ["Google Playで", "手に入れよう"] },
+} as const;
+
 type Props = {
   /** hero용 큰 사이즈 */
   size?: "md" | "lg";
   className?: string;
+  locale?: keyof typeof labels;
+  /** 언어별 스토어 링크(국가 스토어·캠페인 추적). 없으면 기본 링크 */
+  appStoreHref?: string;
+  playStoreHref?: string;
 };
 
-export function StoreButtons({ size = "md", className = "" }: Props) {
+export function StoreButtons({
+  size = "md",
+  className = "",
+  locale = "ko",
+  appStoreHref = site.appStore,
+  playStoreHref = site.playStore,
+}: Props) {
+  const t = labels[locale];
   const pad = size === "lg" ? "px-6 py-3.5" : "px-5 py-3";
   const mark = size === "lg" ? "size-7" : "size-6";
 
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
       <a
-        href={site.appStore}
+        href={appStoreHref}
         target="_blank"
         rel="noopener"
         data-store="ios"
@@ -41,16 +57,16 @@ export function StoreButtons({ size = "md", className = "" }: Props) {
         <AppleMark className={mark} />
         <span className="text-left leading-tight">
           <span className="block text-[11px] tracking-wide text-ink-700">
-            App Store에서
+            {t.ios[0]}
           </span>
           <span className="block font-display text-[15px] font-semibold">
-            다운로드
+            {t.ios[1]}
           </span>
         </span>
       </a>
 
       <a
-        href={site.playStore}
+        href={playStoreHref}
         target="_blank"
         rel="noopener"
         data-store="android"
@@ -59,10 +75,10 @@ export function StoreButtons({ size = "md", className = "" }: Props) {
         <GoogleMark className={mark} />
         <span className="text-left leading-tight">
           <span className="block text-[11px] tracking-wide text-ink-500">
-            Google Play에서
+            {t.android[0]}
           </span>
           <span className="block font-display text-[15px] font-semibold">
-            다운로드
+            {t.android[1]}
           </span>
         </span>
       </a>

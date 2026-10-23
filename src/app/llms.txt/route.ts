@@ -1,11 +1,16 @@
 import { site } from "@/lib/site";
 import { guides } from "@/lib/guides";
+import { jaGuides, jaPricing, jaSite } from "@/lib/ja";
 
 // AI 크롤러용 사이트 안내서. 앱 라우트로 서빙해 가이드가 늘어나면 자동 반영된다.
 export const dynamic = "force-static";
 
 export function GET() {
   const guideLines = guides
+    .map((g) => `- [${g.question}](${site.url}${g.path}): ${g.answer}`)
+    .join("\n");
+
+  const jaGuideLines = jaGuides
     .map((g) => `- [${g.question}](${site.url}${g.path}): ${g.answer}`)
     .join("\n");
 
@@ -34,6 +39,13 @@ ${guideLines}
 - Pro 범위: AI PT 채팅 무제한, AI 맞춤 운동 추천 무제한, AI 트레이너 10종 전체,
   사진 기반 AI 영양 분석, 1RM 추적·근력 곡선, 근육 회복 추적, AI 점진적 과부하 제안
 - 구독 형태: 월간 · 연간 · 평생
+
+## 日本語ページ (${jaSite.name} / ${jaSite.nameKana})
+${jaSite.name}は日本語に対応したAIパーソナルトレーナーアプリです。日本語の公式情報は以下のページです。
+- [${jaSite.name} 公式サイト（日本語）](${site.url}/ja): 機能、AIトレーナー、料金、よくある質問
+${jaGuideLines}
+- 料金（日本の App Store、${jaSite.factsAsOf} 時点）: Pro ${jaPricing.monthly} · ${jaPricing.yearly}、${jaPricing.trial}
+- App Store（日本）: https://apps.apple.com/jp/app/id${site.iosId}
 
 ## 데이터 정책
 - 출처: ${site.nameEn} 공식 정보 (앱 운영 주체가 직접 작성·갱신)

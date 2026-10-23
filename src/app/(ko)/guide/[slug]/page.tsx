@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { guides, getGuide } from "@/lib/guides";
+import { getJaGuide } from "@/lib/ja";
 import { entityId, site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -19,11 +20,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) return {};
+  const ja = getJaGuide(slug);
 
   return {
     title: guide.question,
     description: guide.description,
-    alternates: { canonical: guide.path },
+    alternates: {
+      canonical: guide.path,
+      // 같은 주제의 일본어 가이드가 있으면 hreflang 짝
+      languages: ja ? { ko: guide.path, ja: ja.path, "x-default": guide.path } : undefined,
+    },
     openGraph: {
       type: "article",
       locale: "ko_KR",
