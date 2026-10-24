@@ -9,11 +9,12 @@ import { Faq, faqs } from "@/components/Faq";
 import { DownloadCta } from "@/components/DownloadCta";
 import { Footer } from "@/components/Footer";
 import { guides } from "@/lib/guides";
+import { homeLanguages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
-    languages: { ko: "/", ja: "/ja", "x-default": "/" },
+    languages: homeLanguages,
   },
 };
 

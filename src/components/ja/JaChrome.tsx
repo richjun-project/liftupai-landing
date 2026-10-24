@@ -115,6 +115,11 @@ export function JaFooter() {
                 한국어
               </Link>
             </li>
+            <li>
+              <Link href="/en" hrefLang="en" lang="en" className="hover:text-ink-100">
+                English
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

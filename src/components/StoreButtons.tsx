@@ -22,6 +22,7 @@ function GoogleMark({ className }: { className?: string }) {
 const labels = {
   ko: { ios: ["App Store에서", "다운로드"], android: ["Google Play에서", "다운로드"] },
   ja: { ios: ["App Storeから", "ダウンロード"], android: ["Google Playで", "手に入れよう"] },
+  en: { ios: ["Download on the", "App Store"], android: ["Get it on", "Google Play"] },
 } as const;
 
 type Props = {

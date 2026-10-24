@@ -54,6 +54,15 @@ html[lang="ja"] body {
   line-break: strict;
 }
 
+/* 영어 페이지(/en): 시스템 글꼴 */
+html[lang="en"] {
+  --font-plex-kr: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html[lang="en"] body {
+  word-break: normal;
+}
+
 ::selection {
   background-color: color-mix(in oklch, var(--color-lift-blue) 40%, transparent);
 }

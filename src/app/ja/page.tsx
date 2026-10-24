@@ -4,11 +4,12 @@ import { JaFooter, JaHeader } from "@/components/ja/JaChrome";
 import { StoreButtons } from "@/components/StoreButtons";
 import { jaFaqs, jaGuides, jaPricing, jaSite } from "@/lib/ja";
 import { entityId, site } from "@/lib/site";
+import { homeLanguages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/ja",
-    languages: { ko: "/", ja: "/ja", "x-default": "/" },
+    languages: homeLanguages,
   },
 };
 

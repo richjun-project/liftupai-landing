@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
 
@@ -76,6 +77,16 @@ export function Footer() {
               <a href={`mailto:${site.email}`} className="hover:text-ink-100">
                 문의하기
               </a>
+            </li>
+            <li>
+              <Link href="/ja" hrefLang="ja" lang="ja" className="hover:text-ink-100">
+                日本語
+              </Link>
+            </li>
+            <li>
+              <Link href="/en" hrefLang="en" lang="en" className="hover:text-ink-100">
+                English
+              </Link>
             </li>
           </ul>
         </nav>

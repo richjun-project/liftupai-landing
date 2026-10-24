@@ -2,6 +2,7 @@ import { site } from "@/lib/site";
 import { guides } from "@/lib/guides";
 import { jaGuides, jaPricing, jaSite } from "@/lib/ja";
 import { krPricing } from "@/lib/pricing";
+import { enGuides, enPricing, enSite } from "@/lib/en";
 
 // AI 크롤러용 사이트 안내서. 앱 라우트로 서빙해 가이드가 늘어나면 자동 반영된다.
 export const dynamic = "force-static";
@@ -12,6 +13,10 @@ export function GET() {
     .join("\n");
 
   const jaGuideLines = jaGuides
+    .map((g) => `- [${g.question}](${site.url}${g.path}): ${g.answer}`)
+    .join("\n");
+
+  const enGuideLines = enGuides
     .map((g) => `- [${g.question}](${site.url}${g.path}): ${g.answer}`)
     .join("\n");
 
@@ -50,6 +55,13 @@ ${jaSite.name}は日本語に対応したAIパーソナルトレーナーアプ�
 ${jaGuideLines}
 - 料金（日本の App Store、${jaSite.factsAsOf} 時点）: Pro ${jaPricing.monthly} · ${jaPricing.yearly}、${jaPricing.trial}
 - App Store（日本）: https://apps.apple.com/jp/app/id${site.iosId}
+
+## English pages (${enSite.name})
+${enSite.name} is an AI personal trainer app for iPhone and Android, available in English. Official English pages:
+- [${enSite.name} official site (English)](${site.url}/en): features, AI coach, pricing, FAQ
+${enGuideLines}
+- Pricing (US App Store and Google Play, as of ${enSite.factsAsOf}): Pro ${enPricing.monthly} · ${enPricing.yearly} · ${enPricing.lifetime}, ${enPricing.trial}
+- App Store (US): https://apps.apple.com/us/app/id${site.iosId}
 
 ## 데이터 정책
 - 출처: ${site.nameEn} 공식 정보 (앱 운영 주체가 직접 작성·갱신)

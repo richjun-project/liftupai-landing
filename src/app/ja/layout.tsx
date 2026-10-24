@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import { entityId, sameAs, site } from "@/lib/site";
 import { jaPricing, jaSite } from "@/lib/ja";
+import { homeLanguages } from "@/lib/i18n";
 import "../globals.css";
 
 // 일본어 페이지는 <html lang="ja"> 가 필요해 루트 레이아웃을 따로 둔다(한국어는 (ko)/layout.tsx).
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   publisher: site.nameEn,
   alternates: {
     canonical: "/ja",
-    languages: { ko: "/", ja: "/ja", "x-default": "/" },
+    languages: homeLanguages,
   },
   openGraph: {
     type: "website",

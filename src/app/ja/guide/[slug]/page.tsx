@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JaFooter, JaHeader } from "@/components/ja/JaChrome";
 import { StoreButtons } from "@/components/StoreButtons";
-import { getGuide } from "@/lib/guides";
 import { getJaGuide, jaGuides, jaSite } from "@/lib/ja";
+import { guideLanguages } from "@/lib/i18n";
 import { entityId, site } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -12,12 +12,6 @@ export function generateStaticParams() {
 }
 
 export const dynamicParams = false;
-
-/** 같은 주제의 한국어 가이드가 있으면 hreflang 으로 짝을 짓는다. */
-function languages(slug: string, path: string) {
-  const ko = getGuide(slug);
-  return ko ? { ko: ko.path, ja: path, "x-default": ko.path } : undefined;
-}
 
 export async function generateMetadata({
   params,
@@ -31,7 +25,7 @@ export async function generateMetadata({
   return {
     title: guide.question,
     description: guide.description,
-    alternates: { canonical: guide.path, languages: languages(slug, guide.path) },
+    alternates: { canonical: guide.path, languages: guideLanguages(slug) },
     openGraph: {
       type: "article",
       locale: "ja_JP",
