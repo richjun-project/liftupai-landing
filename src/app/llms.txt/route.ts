@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { guides } from "@/lib/guides";
 import { jaGuides, jaPricing, jaSite } from "@/lib/ja";
+import { krPricing } from "@/lib/pricing";
 
 // AI 크롤러용 사이트 안내서. 앱 라우트로 서빙해 가이드가 늘어나면 자동 반영된다.
 export const dynamic = "force-static";
@@ -38,7 +39,10 @@ ${guideLines}
   빠른 운동 추천 1일 3회, AI PT 채팅 1일 3회
 - Pro 범위: AI PT 채팅 무제한, AI 맞춤 운동 추천 무제한, AI 트레이너 10종 전체,
   사진 기반 AI 영양 분석, 1RM 추적·근력 곡선, 근육 회복 추적, AI 점진적 과부하 제안
-- 구독 형태: 월간 · 연간 · 평생
+- AI PT(에이전트): 답하기 전에 앱의 운동 기록·종목별 무게 변화·오늘의 운동·회복 상태·식단을 확인하고,
+  요청하면 플랜의 운동 교체·운동 시간(알림) 변경을 실제로 실행, 알려준 부상·선호를 최대 30개 기억(삭제 가능)
+- 가격(한국 App Store·Google Play, ${krPricing.asOf} 기준): Pro ${krPricing.monthly} · ${krPricing.yearly} ·
+  ${krPricing.lifetime}, ${krPricing.trial}
 
 ## 日本語ページ (${jaSite.name} / ${jaSite.nameKana})
 ${jaSite.name}は日本語に対応したAIパーソナルトレーナーアプリです。日本語の公式情報は以下のページです。

@@ -1,5 +1,6 @@
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
+import { krPricing } from "@/lib/pricing";
 
 export const faqs = [
   {
@@ -16,7 +17,11 @@ export const faqs = [
   },
   {
     q: "AI 코치에게 무엇을 물어볼 수 있나요?",
-    a: "자세 교정, 대체 운동, 식단 구성, 오늘 컨디션에 맞는 강도 조절까지 대화로 물어볼 수 있습니다. 대화 내용은 그날의 루틴에 즉시 반영됩니다.",
+    a: "자세 교정, 대체 운동, 식단 구성, 오늘 컨디션에 맞는 강도 조절까지 대화로 물어볼 수 있습니다. AI PT는 답하기 전에 앱에 쌓인 내 운동 기록을 먼저 확인하고, 요청하면 플랜의 운동을 실제로 바꾸거나 운동 시간(알림)을 옮깁니다.",
+  },
+  {
+    q: "ChatGPT에 운동 루틴을 물어보는 것과 무엇이 다른가요?",
+    a: "리프트업AI의 AI PT는 앱에 저장된 내 무게·횟수·빈도를 확인한 뒤 답하고, 다음 세션의 무게를 그 기록으로 다시 계산합니다. 알려준 부상이나 선호는 기억해 두었다가 다음 대화와 추천에 반영합니다.",
   },
   {
     q: "식단 기록은 어떻게 하나요?",
@@ -25,6 +30,10 @@ export const faqs = [
   {
     q: "기기를 바꿔도 기록이 유지되나요?",
     a: "계정에 기록이 저장되므로 새 기기에서 로그인하면 그대로 이어집니다. iOS와 Android 모두 같은 계정을 사용합니다.",
+  },
+  {
+    q: "Pro 가격은 얼마인가요?",
+    a: `Pro는 ${krPricing.monthly} 또는 ${krPricing.yearly}이고, ${krPricing.lifetime}도 있습니다. ${krPricing.trial}이 있어 체험 중에 해지하면 요금이 나가지 않습니다.`,
   },
   {
     q: "구독은 어떻게 해지하나요?",

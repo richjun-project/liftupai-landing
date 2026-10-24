@@ -1,4 +1,5 @@
 import { site } from "./site";
+import { krPricing } from "./pricing";
 
 export type Guide = {
   slug: string;
@@ -173,7 +174,7 @@ const guideList = [
       { label: "무료 AI 사용량", value: "빠른 운동 추천 1일 3회 · AI PT 채팅 1일 3회" },
       { label: "무료 트레이너", value: "기본 AI 트레이너 4명" },
       { label: "Pro 추가 기능", value: "AI 무제한 · 트레이너 10종 · 영양 분석 · 1RM 추적 · 회복 추적 · 과부하 제안" },
-      { label: "구독 형태", value: "월간 · 연간 · 평생" },
+      { label: "구독 형태", value: `${krPricing.monthly} · ${krPricing.yearly} · ${krPricing.lifetime}` },
     ],
     faqs: [
       {
@@ -189,7 +190,114 @@ const guideList = [
         a: "한국어, 영어, 일본어를 지원하며 AI 코치도 해당 언어로 대화합니다.",
       },
     ],
-    related: ["ai-workout-routine", "photo-calorie-tracking"],
+    related: ["ai-pt-app-price", "photo-calorie-tracking"],
+  },
+  // 2026-10-24: 일본 첫 다운로드의 절반이 ChatGPT 앱에서 왔다(ASC). 같은 질문형 비교·대안 가이드를 한국어로도 둔다.
+  // 일본어(/ja)와 같은 slug 면 sitemap·hreflang 이 서로를 언어 대체본으로 잇는다.
+  {
+    slug: "personal-gym-alternative",
+    question: "PT 대신 AI PT 앱으로 운동해도 되나요?",
+    answer:
+      "루틴 짜기·무게 조절·기록 관리는 앱이 대신할 수 있습니다. 자세를 눈으로 보고 바로잡는 일은 대면 트레이너의 몫입니다.",
+    description:
+      "PT 비용이 부담될 때 AI PT 앱으로 어디까지 대신할 수 있는지 정리했습니다. 리프트업AI는 목표와 기록으로 루틴을 만들고, 지난 기록으로 다음 무게를 조절하며, AI PT가 내 기록을 확인한 뒤 답합니다. 대면 PT와의 차이와 같이 쓰는 법, 가격까지.",
+    body: [
+      "퍼스널 트레이너가 하는 일은 크게 네 가지입니다. 루틴을 짜고, 매번 들 무게를 정하고, 기록을 보며 진척을 판단하고, 자세를 직접 보고 고쳐줍니다. 리프트업AI의 AI PT는 이 중 앞의 세 가지를 앱에 쌓인 기록으로 합니다.",
+      "리프트업AI의 AI PT는 질문을 받으면 최근 운동 기록과 종목별 무게 변화를 먼저 확인하고 답합니다. \"이 운동 바꿔줘\", \"운동 시간을 저녁 7시로 옮겨줘\"라고 하면 플랜의 운동과 알림 시간을 실제로 바꾸고, 무엇을 바꿨는지 채팅에 표시합니다. 알려준 부상이나 선호는 기억해 두었다가 다음 추천에 반영합니다.",
+      "카메라로 자세를 보고 바로잡아 주지는 못합니다. 처음 하는 종목의 자세가 걱정되면 대면 PT를 몇 회만 받고, 매일의 루틴과 기록은 앱으로 이어가는 방식으로 함께 쓸 수 있습니다.",
+      `가격은 무료로 시작할 수 있고, Pro는 ${krPricing.monthly} 또는 ${krPricing.yearly}입니다. ${krPricing.trial}이 있습니다.`,
+    ],
+    facts: [
+      { label: "앱이 대신하는 일", value: "루틴 설계 · 무게 조절 · 기록 확인 · 운동 교체 · 운동 시간(알림) 변경" },
+      { label: "AI PT가 기억하는 것", value: "부상 · 못 하는 운동 · 선호 등 알려준 내용(언제든 잊게 할 수 있음)" },
+      { label: "앱이 못 하는 일", value: "자세를 눈으로 보고 직접 바로잡기" },
+      { label: "가격", value: `무료로 시작 · Pro ${krPricing.monthly} / ${krPricing.yearly}` },
+      { label: "무료 체험", value: krPricing.trial },
+    ],
+    faqs: [
+      {
+        q: "AI PT가 정말 내 기록을 보고 답하나요?",
+        a: "네. 답하기 전에 앱에 저장된 최근 운동, 종목별 무게 변화, 오늘의 운동, 회복 상태 등을 확인하고, 무엇을 확인했는지 채팅에 표시합니다.",
+      },
+      {
+        q: "AI PT에게 부탁한 변경이 실제로 반영되나요?",
+        a: "운동 교체와 운동 시간 변경은 AI PT가 플랜과 알림 설정을 실제로 바꾸고, 바꾼 내용을 채팅에 표시합니다.",
+      },
+      {
+        q: "트레이너 성격을 고를 수 있나요?",
+        a: "엄하게 몰아붙이는 타입부터 자세를 차분히 설명하는 타입까지 AI 트레이너가 10명 있고, 무료로 4명, Pro로 전원을 고를 수 있습니다.",
+      },
+    ],
+    related: ["ai-chat-vs-coach-app", "ai-pt-app-price"],
+  },
+  {
+    slug: "ai-chat-vs-coach-app",
+    question: "ChatGPT로 운동 루틴 짜는 것과 AI PT 앱은 뭐가 다른가요?",
+    answer:
+      "AI PT 앱은 내 실제 기록(무게·횟수·빈도)을 읽고 다음 루틴을 조절하며, 부탁하면 플랜 자체를 바꿉니다.",
+    description:
+      "ChatGPT 같은 대화형 AI에게 운동 루틴을 받는 것과 리프트업AI 같은 AI PT 앱을 쓰는 것의 차이를 정리했습니다. 기록 저장, 다음 무게 조절, 플랜 변경, 알려준 내용 기억이 다릅니다.",
+    body: [
+      "대화형 AI로도 루틴 초안은 만들 수 있지만, 매번 무게와 횟수를 직접 다시 알려줘야 합니다. 앱은 세트마다 기록이 자동으로 저장되고, 그 기록이 다음 무게 제안에 쓰입니다.",
+      "리프트업AI의 AI PT는 답하기 전에 앱의 기록(최근 운동, 종목별 무게 변화, 오늘의 운동, 회복 상태, 식단)을 확인합니다. 운동 교체나 운동 시간 변경을 부탁하면 플랜과 알림을 실제로 바꿉니다.",
+      "알려준 부상, 못 하는 운동, 선호는 최대 30개까지 기억해 두었다가 다음 대화와 추천에 반영합니다. 기억한 내용은 언제든 잊게 할 수 있습니다.",
+    ],
+    facts: [
+      { label: "기록 저장", value: "세트마다 무게·횟수 자동 저장" },
+      { label: "AI가 확인하는 정보", value: "최근 운동 · 종목별 무게 변화 · 오늘의 운동 · 회복 상태 · 식단" },
+      { label: "AI가 실행하는 변경", value: "플랜의 운동 교체 · 운동 시간(알림) 변경" },
+      { label: "기억", value: "알려준 내용 최대 30개 기억, 언제든 삭제 가능" },
+      { label: "무료 사용량", value: "AI PT 채팅 1일 3회(Pro 무제한)" },
+    ],
+    faqs: [
+      {
+        q: "AI PT는 무엇을 기억하나요?",
+        a: "아픈 부위, 못 하는 운동, 운동 취향처럼 채팅에서 알려준 내용을 기억해 두었다가 다음 추천에 반영합니다.",
+      },
+      {
+        q: "AI PT가 마음대로 루틴을 바꾸기도 하나요?",
+        a: "운동이나 알림 변경은 사용자가 부탁했을 때만 하고, 무엇을 바꿨는지 채팅에 표시합니다.",
+      },
+      {
+        q: "ChatGPT 계정이 필요한가요?",
+        a: "필요 없습니다. 리프트업AI 앱만으로 AI PT 채팅과 루틴 생성을 쓸 수 있습니다.",
+      },
+    ],
+    related: ["personal-gym-alternative", "ai-workout-routine"],
+  },
+  {
+    slug: "ai-pt-app-price",
+    question: "AI PT 앱은 한 달에 얼마인가요?",
+    answer: `리프트업AI는 무료로 시작할 수 있고, Pro는 ${krPricing.monthly}, ${krPricing.yearly}입니다.`,
+    description: `리프트업AI의 가격을 정리했습니다. 운동 기록과 1,300개 운동 데이터베이스는 계속 무료, AI 추천과 AI PT 채팅은 하루 3회 무료. Pro는 ${krPricing.monthly}, ${krPricing.yearly}, ${krPricing.lifetime}이고 ${krPricing.trial}이 있습니다.`,
+    body: [
+      "리프트업AI는 설치와 가입이 무료입니다. 운동 기록, 세트와 횟수 관리, 1,300개 운동 데이터베이스, 휴식 타이머와 알림은 기간 제한 없이 무료이고, 빠른 운동 추천과 AI PT 채팅은 각각 하루 3회까지 무료입니다.",
+      `Pro는 ${krPricing.monthly}, ${krPricing.yearly}, ${krPricing.lifetime} 중에서 고릅니다. ${krPricing.trial}이 있어 체험 기간 안에 해지하면 요금이 나가지 않습니다.`,
+      "Pro를 쓰면 AI PT 채팅과 맞춤 운동 추천이 무제한이 되고, AI 트레이너 10명 전원, 사진 기반 영양 분석, 1RM 추적, 근육 회복 추적, AI 점진적 과부하 제안이 열립니다.",
+    ],
+    facts: [
+      { label: "Pro 월간", value: krPricing.monthly },
+      { label: "Pro 연간", value: krPricing.yearly },
+      { label: "평생 이용권", value: krPricing.lifetime },
+      { label: "무료 체험", value: krPricing.trial },
+      { label: "계속 무료", value: "운동 기록 · 세트/횟수 관리 · 운동 DB 1,300개 · 휴식 타이머 · 알림 · AI 추천/채팅 1일 3회" },
+      { label: "가격 기준", value: `${krPricing.asOf} 한국 App Store·Google Play 표시 가격(부가세 포함)` },
+    ],
+    faqs: [
+      {
+        q: "무료 체험이 끝나면 자동으로 결제되나요?",
+        a: "App Store 무료 체험은 체험 기간이 끝나기 24시간 전까지 해지하지 않으면 선택한 요금제로 결제됩니다. 해지는 App Store 계정의 구독 설정에서 할 수 있습니다.",
+      },
+      {
+        q: "월간과 연간 중 무엇이 저렴한가요?",
+        a: `연간은 ${krPricing.yearly}으로, 월간(${krPricing.monthly})을 12개월 쓰는 것보다 절반 이하입니다.`,
+      },
+      {
+        q: "구독을 해지하면 기록이 사라지나요?",
+        a: "해지해도 남은 기간까지는 Pro 기능이 유지되고, 그동안 쌓인 운동 기록은 사라지지 않습니다.",
+      },
+    ],
+    related: ["free-ai-pt", "personal-gym-alternative"],
   },
 ] as const satisfies readonly Omit<Guide, "path">[];
 

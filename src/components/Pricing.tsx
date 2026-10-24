@@ -1,6 +1,7 @@
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
 import { site } from "@/lib/site";
+import { krPricing } from "@/lib/pricing";
 
 const free = [
   "빠른 운동 추천 하루 3회",
@@ -90,11 +91,11 @@ export function Pricing() {
                 LIFTUP PRO
               </p>
               <p className="mt-4 font-display text-[30px] font-semibold tracking-tight">
-                월간 · 연간 · 평생
+                {krPricing.monthly}
               </p>
               <p className="mt-1.5 text-[13.5px] text-ink-500">
-                연간 결제 시 할인, 평생 이용권은 한 번 결제로 영구 이용 · 언제든
-                해지 가능
+                {krPricing.yearly} · {krPricing.lifetime} · {krPricing.trial} ·
+                언제든 해지 가능
               </p>
             </div>
             <span className="shimmer-sweep rounded-full border border-lift-violet/40 bg-lift-violet/12 px-3 py-1.5 text-[11.5px] font-semibold text-ink-100">
@@ -119,7 +120,7 @@ export function Pricing() {
               Pro 시작하기
             </a>
             <p className="text-[12.5px] text-ink-500">
-              정확한 가격은 앱 내 결제 화면에서 확인하세요
+              {krPricing.note}
             </p>
           </div>
 

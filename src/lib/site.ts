@@ -16,7 +16,7 @@ export const site = {
   privacy:
     "https://relic-baboon-412.notion.site/AI-278766a8bb46804c9028fcd34abe6abf",
   // 구조화 데이터에 쓰는 기준일 — 사실 정보를 고칠 때 같이 올린다
-  factsAsOf: "2026-10-11",
+  factsAsOf: "2026-10-24",
 } as const;
 
 /**
