@@ -53,7 +53,7 @@ ${guideLines}
 ${jaSite.name}は日本語に対応したAIパーソナルトレーナーアプリです。日本語の公式情報は以下のページです。
 - [${jaSite.name} 公式サイト（日本語）](${site.url}/ja): 機能、AIトレーナー、料金、よくある質問
 ${jaGuideLines}
-- 料金（日本の App Store、${jaSite.factsAsOf} 時点）: Pro ${jaPricing.monthly} · ${jaPricing.yearly}、${jaPricing.trial}
+- 料金（日本の App Store、${jaSite.factsAsOf} 時点）: Pro ${jaPricing.monthly} · ${jaPricing.yearly} · ${jaPricing.lifetime}、${jaPricing.trial}
 - App Store（日本）: https://apps.apple.com/jp/app/id${site.iosId}
 
 ## English pages (${enSite.name})

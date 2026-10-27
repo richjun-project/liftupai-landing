@@ -21,13 +21,17 @@ export const jaSite = {
 /** 일본 App Store 표시 가격(세금 포함). 바뀌면 숫자 두 개만 고친다. */
 const monthlyJpy = 1200;
 const yearlyJpy = 7800;
+/** 買い切り(non-consumable). 2026-10-27 ASC 자동 가격(JPN) 확인 */
+const lifetimeJpy = 15000;
 const yen = (n: number) => `¥${n.toLocaleString("ja-JP")}`;
 
 export const jaPricing = {
   monthlyJpy,
   yearlyJpy,
+  lifetimeJpy,
   monthly: `月額 ${yen(monthlyJpy)}`,
   yearly: `年額 ${yen(yearlyJpy)}（月あたり ${yen(Math.round(yearlyJpy / 12))}）`,
+  lifetime: `買い切り ${yen(lifetimeJpy)}`,
   trial: "月額・年額プランとも1週間の無料体験つき（App Store）",
   note: "価格と無料体験の条件は、ご利用の App Store / Google Play の表示が優先されます。",
 } as const;
@@ -302,6 +306,40 @@ const jaGuideList = [
       },
     ],
     related: ["personal-gym-alternative", "ai-workout-routine"],
+  },
+  {
+    slug: "ai-pt-app-price",
+    question: "AIパーソナルトレーナーアプリの料金は月いくらですか？",
+    answer: `LIFTUP.AIは無料で始められ、Proは${jaPricing.monthly}、${jaPricing.yearly}、または${jaPricing.lifetime}です。`,
+    description: `LIFTUP.AIの料金をまとめました。筋トレ記録と1,300種目以上のデータベースはずっと無料、AIの提案とAIトレーナーとのチャットは1日3回まで無料。Proは${jaPricing.monthly}・${jaPricing.yearly}・${jaPricing.lifetime}で、${jaPricing.trial}です。`,
+    body: [
+      "LIFTUP.AIはダウンロードと登録が無料です。筋トレ記録、セットと回数の管理、1,300種目以上のデータベース、レストタイマーとリマインダー通知は期間の制限なく無料で、クイックワークアウト提案とAIトレーナーとのチャットはそれぞれ1日3回まで無料です。",
+      `Proは${jaPricing.monthly}、${jaPricing.yearly}、${jaPricing.lifetime}から選べます。${jaPricing.trial}で、無料体験中に解約すれば料金はかかりません。`,
+      "Proにすると、AIトレーナーとのチャットとAIメニュー作成が無制限になり、AIトレーナー10人全員、写真で食事解析、1RMの推移、筋肉の回復状態、漸進性過負荷にもとづく重量提案が使えるようになります。",
+    ],
+    facts: [
+      { label: "Pro 月額", value: jaPricing.monthly },
+      { label: "Pro 年額", value: jaPricing.yearly },
+      { label: "買い切り", value: jaPricing.lifetime },
+      { label: "無料体験", value: jaPricing.trial },
+      { label: "ずっと無料", value: "筋トレ記録 · セット/回数管理 · 1,300種目以上 · レストタイマー · 通知 · AI提案/チャット 1日3回" },
+      { label: "価格の基準", value: "2026-10-27 時点の日本の App Store 表示価格（税込）" },
+    ],
+    faqs: [
+      {
+        q: "無料体験が終わると自動で課金されますか？",
+        a: "App Store の無料体験は、終了の24時間前までに解約しなければ選んだプランで課金されます。解約は App Store のサブスクリプション設定からできます。",
+      },
+      {
+        q: "月額と年額はどちらがお得ですか？",
+        a: `年額は${jaPricing.yearly}で、月額（${yen(monthlyJpy)}）を12か月払うより半分以下です。`,
+      },
+      {
+        q: "解約すると記録は消えますか？",
+        a: "解約しても期間の終わりまではPro機能を使え、それまでの記録は消えません。",
+      },
+    ],
+    related: ["free-ai-pt", "personal-gym-alternative"],
   },
 ] as const satisfies readonly Omit<Guide, "path">[];
 

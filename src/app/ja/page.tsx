@@ -60,7 +60,7 @@ const plans = [
     label: "Pro",
     value: "AIチャットとAIメニュー作成が無制限 · トレーナー10人全員 · 写真で食事解析 · 1RM推移 · 回復状態 · 漸進性過負荷にもとづく重量提案",
   },
-  { label: "Proの料金", value: `${jaPricing.monthly} · ${jaPricing.yearly}` },
+  { label: "Proの料金", value: `${jaPricing.monthly} · ${jaPricing.yearly} · ${jaPricing.lifetime}` },
   { label: "無料体験", value: jaPricing.trial },
 ];
 
