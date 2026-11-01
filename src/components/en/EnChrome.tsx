@@ -101,9 +101,14 @@ export function EnFooter() {
               </a>
             </li>
             <li>
-              <a href={site.privacy} target="_blank" rel="noopener" className="hover:text-ink-100">
+              <Link href="/en/privacy" className="hover:text-ink-100">
                 Privacy policy
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/en/delete-account" className="hover:text-ink-100">
+                Account deletion
+              </Link>
             </li>
             <li>
               <a href={`mailto:${site.email}`} className="hover:text-ink-100">

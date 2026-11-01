@@ -13,8 +13,9 @@ export const site = {
   email: "ggprgrkjh2@gmail.com",
   terms:
     "https://relic-baboon-412.notion.site/AI-278766a8bb4680b884ccd0de8c31f6e0?pvs=74",
-  privacy:
-    "https://relic-baboon-412.notion.site/AI-278766a8bb46804c9028fcd34abe6abf",
+  // 개인정보 처리방침·계정 삭제 안내는 이 사이트의 정적 페이지(src/lib/legal.ts) — Notion 은 JS 로만 그려져 Play 검토에서 거절됐다
+  privacy: "https://liftupai.net/privacy",
+  accountDeletion: "https://liftupai.net/delete-account",
   // 구조화 데이터에 쓰는 기준일 — 사실 정보를 고칠 때 같이 올린다
   factsAsOf: "2026-10-24",
 } as const;

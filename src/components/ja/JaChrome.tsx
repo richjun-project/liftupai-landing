@@ -101,9 +101,14 @@ export function JaFooter() {
               </a>
             </li>
             <li>
-              <a href={site.privacy} target="_blank" rel="noopener" className="hover:text-ink-100">
+              <Link href="/ja/privacy" className="hover:text-ink-100">
                 プライバシーポリシー
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/ja/delete-account" className="hover:text-ink-100">
+                アカウント削除
+              </Link>
             </li>
             <li>
               <a href={`mailto:${site.email}`} className="hover:text-ink-100">

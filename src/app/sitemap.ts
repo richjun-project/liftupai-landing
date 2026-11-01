@@ -4,6 +4,7 @@ import { guides } from "@/lib/guides";
 import { jaGuides, jaSite } from "@/lib/ja";
 import { enGuides, enSite } from "@/lib/en";
 import { guideLanguages, homeLanguages } from "@/lib/i18n";
+import { legalPaths } from "@/lib/legal";
 
 /** hreflang 짝(상대 경로)을 sitemap 용 절대 URL 로 */
 function abs(langs: Record<string, string> | undefined) {
@@ -22,6 +23,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   return [
+    // 개인정보 처리방침·계정 삭제 안내(세 언어)
+    ...(["privacy", "deletion"] as const).flatMap((k) =>
+      (["ko", "ja", "en"] as const).map((l) => ({
+        url: `${site.url}${legalPaths[k][l]}`,
+        lastModified: new Date("2026-11-01"),
+        changeFrequency: "yearly" as const,
+        priority: 0.3,
+        alternates: { languages: Object.fromEntries((["ko", "ja", "en"] as const).map((x) => [x, `${site.url}${legalPaths[k][x]}`])) },
+      })),
+    ),
     { url: site.url, lastModified: now, changeFrequency: "weekly", priority: 1, ...home },
     // 의도 랜딩 — 새 가이드를 만들면 여기 자동 반영된다
     ...guides.map((g) => ({

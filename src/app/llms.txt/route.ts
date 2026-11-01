@@ -71,6 +71,7 @@ ${enGuideLines}
 ## 약관
 - 이용약관: ${site.terms}
 - 개인정보처리방침: ${site.privacy}
+- 계정 삭제 안내: ${site.accountDeletion}
 `;
 
   return new Response(body, {

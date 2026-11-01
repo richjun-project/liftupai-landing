@@ -64,14 +64,14 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a
-                href={site.privacy}
-                target="_blank"
-                rel="noopener"
-                className="hover:text-ink-100"
-              >
+              <Link href="/privacy" className="hover:text-ink-100">
                 개인정보 처리방침
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/delete-account" className="hover:text-ink-100">
+                계정 삭제
+              </Link>
             </li>
             <li>
               <a href={`mailto:${site.email}`} className="hover:text-ink-100">
