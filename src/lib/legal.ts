@@ -34,7 +34,7 @@ export const privacy: Record<LegalLang, LegalDoc> = {
     description: "리프트업AI(LiftUp AI)가 수집하는 개인정보, 이용 목적, 처리 위탁, 보유 기간과 삭제 방법.",
     effective: "시행일 2026년 11월 1일",
     intro: [
-      "리프트업AI(LiftUp AI, 이하 '앱')는 김준형(Google Play 개발자 이름 kjh8870, 이하 '운영자')이 운영하는 AI 퍼스널 트레이닝 앱입니다. 이 방침은 앱과 liftupai.net 에서 어떤 개인정보를 왜 수집하고, 누구에게 처리를 맡기며, 언제 지우는지 설명합니다.",
+      "리프트업AI(LiftUp AI, Google Play 앱 이름 '리프트업 AI 트레이너 - 헬스 PT 운동루틴', 이하 '앱')는 김준형(Google Play 개발자 이름 kjh8870, 이하 '운영자')이 운영하는 AI 퍼스널 트레이닝 앱입니다. 이 방침은 앱과 liftupai.net 에서 어떤 개인정보를 왜 수집하고, 누구에게 처리를 맡기며, 언제 지우는지 설명합니다.",
     ],
     sections: [
       {
@@ -119,7 +119,7 @@ export const privacy: Record<LegalLang, LegalDoc> = {
     description: "LiftUp AI が収集する個人情報、利用目的、委託先、保存期間と削除方法。",
     effective: "施行日 2026年11月1日",
     intro: [
-      "LiftUp AI(以下「本アプリ」)は、김준형 / Jun Hyeong Kim(Google Play デベロッパー名 kjh8870、以下「運営者」)が運営する AI パーソナルトレーニングアプリです。本ポリシーは、本アプリと liftupai.net で収集する個人情報、その目的、委託先、削除の時期を説明します。",
+      "LiftUp AI(Google Play のアプリ名「LIFTUP AIパーソナルトレーナー・筋トレ記録」、以下「本アプリ」)は、김준형 / Jun Hyeong Kim(Google Play デベロッパー名 kjh8870、以下「運営者」)が運営する AI パーソナルトレーニングアプリです。本ポリシーは、本アプリと liftupai.net で収集する個人情報、その目的、委託先、削除の時期を説明します。",
     ],
     sections: [
       {
@@ -202,7 +202,7 @@ export const privacy: Record<LegalLang, LegalDoc> = {
     description: "What personal data LiftUp AI collects, why, who processes it, how long it is kept, and how to delete it.",
     effective: "Effective November 1, 2026",
     intro: [
-      "LiftUp AI (the \"App\") is an AI personal training app operated by Jun Hyeong Kim (Google Play developer name: kjh8870, the \"Operator\"). This policy explains what personal data the App and liftupai.net collect, why, who processes it on our behalf, and when it is deleted.",
+      "LiftUp AI (Google Play app name: \"LiftUp AI: Personal Trainer\"; the \"App\") is an AI personal training app operated by Jun Hyeong Kim (Google Play developer name: kjh8870, the \"Operator\"). This policy explains what personal data the App and liftupai.net collect, why, who processes it on our behalf, and when it is deleted.",
     ],
     sections: [
       {
@@ -288,7 +288,7 @@ export const deletion: Record<LegalLang, LegalDoc> = {
     description: "리프트업AI(LiftUp AI) 계정과 데이터를 삭제하는 방법, 삭제되는 데이터와 남는 데이터.",
     effective: "2026년 11월 1일 기준",
     intro: [
-      "리프트업AI(LiftUp AI, Google Play 개발자 kjh8870 · 운영자 김준형) 계정과 모든 데이터는 앱에서 바로 지우거나, 앱 없이 이메일로 요청해 지울 수 있습니다.",
+      "리프트업AI(LiftUp AI · Google Play 앱 이름 '리프트업 AI 트레이너 - 헬스 PT 운동루틴', 개발자 kjh8870 · 운영자 김준형) 계정과 모든 데이터는 앱에서 바로 지우거나, 앱 없이 이메일로 요청해 지울 수 있습니다.",
     ],
     sections: [
       {
@@ -343,7 +343,7 @@ export const deletion: Record<LegalLang, LegalDoc> = {
     description: "LiftUp AI のアカウントとデータを削除する方法、削除されるデータと残るデータ。",
     effective: "2026年11月1日時点",
     intro: [
-      "LiftUp AI(Google Play デベロッパー kjh8870 / 運営者 김준형 Jun Hyeong Kim)のアカウントとすべてのデータは、アプリからすぐに削除するか、アプリなしでメールで削除を依頼できます。",
+      "LiftUp AI(Google Play のアプリ名「LIFTUP AIパーソナルトレーナー・筋トレ記録」、デベロッパー kjh8870 / 運営者 김준형 Jun Hyeong Kim)のアカウントとすべてのデータは、アプリからすぐに削除するか、アプリなしでメールで削除を依頼できます。",
     ],
     sections: [
       {
@@ -398,7 +398,7 @@ export const deletion: Record<LegalLang, LegalDoc> = {
     description: "How to delete your LiftUp AI account and data, what is deleted, and what may be retained.",
     effective: "As of November 1, 2026",
     intro: [
-      "You can delete your LiftUp AI account (Google Play developer: kjh8870, operated by Jun Hyeong Kim) and all of its data right in the app, or request deletion by email without the app.",
+      "You can delete your LiftUp AI account (Google Play app name: \"LiftUp AI: Personal Trainer\", developer: kjh8870, operated by Jun Hyeong Kim) and all of its data right in the app, or request deletion by email without the app.",
     ],
     sections: [
       {
